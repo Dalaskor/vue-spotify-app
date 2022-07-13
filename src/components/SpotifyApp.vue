@@ -5,7 +5,7 @@
       <div class="app__profile">
         <img src="./../static/img/profile.png" alt="Profile image" class="profile_img">
       </div>
-      <p class="header__text">
+      <p class="app__title">
         Your Feed
       </p>
     </div>
@@ -194,6 +194,13 @@ export default {
     justify-content: flex-start;
     gap: 8px;
   }
+  &__title{
+    margin: 0;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+  }
   &__profile{
     width: 25px;
     height: 25px;
@@ -206,12 +213,6 @@ export default {
     &:hover {
       opacity: 0.8;
     }
-  }
-  &__text{
-    font-style: normal;
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 30px;
   }
   &__tracklist{
     display: flex;
