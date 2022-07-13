@@ -21,6 +21,7 @@ html, body {
 /* полоса прокрутки (скроллбар) */
 ::-webkit-scrollbar {
     width: 5px; /* ширина для вертикального скролла */
+    height: 5px;
     background-color: rgba(52, 52, 52, 0.6);
 }
 

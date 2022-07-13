@@ -139,6 +139,31 @@
         </div>
       </div>
     </div>
+    <div class="app__footer footer">
+      <div class="footer__fullbtn">
+        <button class="btnfullscreen">
+        </button>
+      </div>
+      <div class="footer__prevbtn">
+        <button class="btnprev">
+          <img src="./../static/img/prevbtn.png" alt="">
+        </button>
+      </div>
+      <div class="footer__playbtn">
+        <button class="btnplay">
+        </button>
+      </div>
+      <div class="footer__nextbtn">
+        <button class="btnnext">
+          <img src="./../static/img/nextbtn.png" alt="">
+        </button>
+      </div>
+      <div class="footer__shufflebtn">
+        <button class="btnshuffle">
+          <img src="./../static/img/shufflebtn.png" alt="">
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 </template>
@@ -200,6 +225,126 @@ export default {
   }
   &__trackcard{
   }
+  &__footer {
+    margin-top: 25px;
+  }
+}
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 40px;
+  &__fullbtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__prevbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__playbtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__nextbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__shufflebtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.btnfullscreen {
+  border: solid #ffffff;
+  background-color: #121212;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  transition: 0.4s;
+  &:hover{
+    opacity: 0.8;
+  }
+}
+.btnshuffle {
+  width: 50px;
+  height: 50px;
+  background: none;
+  border: none;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  & img{
+    width: 25px;
+    height: 25px;
+  }
+  &:hover{
+    opacity: 0.8;
+  }
+}
+.btnnext {
+  width: 50px;
+  height: 50px;
+  background: none;
+  border: none;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  & img{
+    width: 25px;
+    height: 25px;
+  }
+  &:hover{
+    opacity: 0.8;
+  }
+}
+.btnplay {
+  height: 76px;
+  width: 76px;
+  border: none;
+  border-radius: 100px;
+  background: none;
+  background: url(./../static/img/playbtn.png) no-repeat center center;
+  background-color: #FFFFFF;
+  transition: 0.4s;
+  &.pause {
+    background: none;
+    background: url(./../static/img/pausebtn.png) no-repeat center center;
+    background-color: #FFFFFF;
+  }
+  &:hover{
+    opacity: 0.8;
+  }
+}
+.btnprev {
+  width: 50px;
+  height: 50px;
+  background: none;
+  border: none;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  & img{
+    width: 25px;
+    height: 25px;
+  }
+  &:hover{
+    opacity: 0.8;
+  }
 }
 .profile_img{
   width: 25px;
@@ -240,6 +385,7 @@ export default {
   }
 }
 .playbutton{
+  border: none;
   width: 45px;
   height: 45px;
   filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.25));
