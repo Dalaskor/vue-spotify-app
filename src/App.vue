@@ -14,4 +14,10 @@ export default {
 </script>
 
 <style lang="scss">
+#app {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+}
 </style>
