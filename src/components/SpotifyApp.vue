@@ -10,159 +10,58 @@
       </p>
     </div>
     <div class="app__tracklist">
-      <div class="app__trackcard cardtrack">
-        <img src="./../static/img/track-1.jpg" alt="Image for card track" class="cardtrack__img">
+      <div class="app__trackcard cardtrack" v-for="song in songs" :key="song.src">
+        <img :src="song.srcImg" alt="Image for card track" class="cardtrack__img">
         <div class="cardtrack__body">
           <p class="cardtrack__title">
-            Summer Can Last More
+            {{ song.title }}
           </p>
           <p class="cardtrack__author">
-            Vlad Gluschenko
+            {{ song.artist }}
           </p>
         </div>
         <div class="cardtrack__button">
-          <button class="playbutton">
-            <img src="./../static/img/play.png" alt="" class="playbutton__img">
-          </button>
-        </div>
-      </div>
-      <div class="app__trackcard cardtrack">
-        <img src="./../static/img/track-1.jpg" alt="Image for card track" class="cardtrack__img">
-        <div class="cardtrack__body">
-          <p class="cardtrack__title">
-            Summer Can Last More
-          </p>
-          <p class="cardtrack__author">
-            Vlad Gluschenko
-          </p>
-        </div>
-        <div class="cardtrack__button">
-          <button class="playbutton">
-            <img src="./../static/img/play.png" alt="" class="playbutton__img">
-          </button>
-        </div>
-      </div>
-      <div class="app__trackcard cardtrack">
-        <img src="./../static/img/track-1.jpg" alt="Image for card track" class="cardtrack__img">
-        <div class="cardtrack__body">
-          <p class="cardtrack__title">
-            Summer Can Last More
-          </p>
-          <p class="cardtrack__author">
-            Vlad Gluschenko
-          </p>
-        </div>
-        <div class="cardtrack__button">
-          <button class="playbutton">
-            <img src="./../static/img/play.png" alt="" class="playbutton__img">
-          </button>
-        </div>
-      </div>
-      <div class="app__trackcard cardtrack">
-        <img src="./../static/img/track-1.jpg" alt="Image for card track" class="cardtrack__img">
-        <div class="cardtrack__body">
-          <p class="cardtrack__title">
-            Summer Can Last More
-          </p>
-          <p class="cardtrack__author">
-            Vlad Gluschenko
-          </p>
-        </div>
-        <div class="cardtrack__button">
-          <button class="playbutton">
-            <img src="./../static/img/play.png" alt="" class="playbutton__img">
-          </button>
-        </div>
-      </div>
-      <div class="app__trackcard cardtrack">
-        <img src="./../static/img/track-1.jpg" alt="Image for card track" class="cardtrack__img">
-        <div class="cardtrack__body">
-          <p class="cardtrack__title">
-            Summer Can Last More
-          </p>
-          <p class="cardtrack__author">
-            Vlad Gluschenko
-          </p>
-        </div>
-        <div class="cardtrack__button">
-          <button class="playbutton">
-            <img src="./../static/img/play.png" alt="" class="playbutton__img">
-          </button>
-        </div>
-      </div>
-      <div class="app__trackcard cardtrack">
-        <img src="./../static/img/track-1.jpg" alt="Image for card track" class="cardtrack__img">
-        <div class="cardtrack__body">
-          <p class="cardtrack__title">
-            Summer Can Last More
-          </p>
-          <p class="cardtrack__author">
-            Vlad Gluschenko
-          </p>
-        </div>
-        <div class="cardtrack__button">
-          <button class="playbutton">
-            <img src="./../static/img/play.png" alt="" class="playbutton__img">
-          </button>
-        </div>
-      </div>
-      <div class="app__trackcard cardtrack">
-        <img src="./../static/img/track-1.jpg" alt="Image for card track" class="cardtrack__img">
-        <div class="cardtrack__body">
-          <p class="cardtrack__title">
-            Summer Can Last More
-          </p>
-          <p class="cardtrack__author">
-            Vlad Gluschenko
-          </p>
-        </div>
-        <div class="cardtrack__button">
-          <button class="playbutton">
-            <img src="./../static/img/play.png" alt="" class="playbutton__img">
-          </button>
-        </div>
-      </div>
-      <div class="app__trackcard cardtrack">
-        <img src="./../static/img/track-1.jpg" alt="Image for card track" class="cardtrack__img">
-        <div class="cardtrack__body">
-          <p class="cardtrack__title">
-            Summer Can Last More
-          </p>
-          <p class="cardtrack__author">
-            Vlad Gluschenko
-          </p>
-        </div>
-        <div class="cardtrack__button">
-          <button class="playbutton">
+          <button class="playbutton" @click="play(song)">
             <img src="./../static/img/play.png" alt="" class="playbutton__img">
           </button>
         </div>
       </div>
     </div>
+    <div class="app__currentsong">
+      <span class="app__curArtist">
+        {{ current.artist }}
+      </span>
+      -
+      <span class="app__curTitle">
+        {{ current.title }}
+      </span>
+    </div>
     <div class="app__footer footer">
-      <div class="footer__fullbtn">
+      <!-- <div class="footer__fullbtn">
         <button class="btnfullscreen">
         </button>
-      </div>
+      </div> -->
       <div class="footer__prevbtn">
-        <button class="btnprev">
+        <button class="btnprev" @click="prev">
           <img src="./../static/img/prevbtn.png" alt="">
         </button>
       </div>
       <div class="footer__playbtn">
-        <button class="btnplay">
+        <button class="btnplay" v-if="!isPlaying" @click="play">
+        </button>
+        <button class="btnplay pause" v-else @click="pause">
         </button>
       </div>
       <div class="footer__nextbtn">
-        <button class="btnnext">
+        <button class="btnnext" @click="next">
           <img src="./../static/img/nextbtn.png" alt="">
         </button>
       </div>
-      <div class="footer__shufflebtn">
+      <!-- <div class="footer__shufflebtn">
         <button class="btnshuffle">
           <img src="./../static/img/shufflebtn.png" alt="">
         </button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -172,7 +71,83 @@
 export default {
   data() {
     return {
+      isPlaying: false,
+      current: {},
+      index: 0,
+      songs: [
+        {
+          title: 'Summer Can Last More',
+          artist: 'Vlad Gluschenko',
+          // eslint-disable-next-line
+          src: require('../static/sound/track-1.wav'),
+          // eslint-disable-next-line
+          srcImg: require('../static/img/track-1.jpg'),
+        },
+        {
+          title: 'Insomnia',
+          artist: 'Nomyn',
+          // eslint-disable-next-line
+          src: require('../static/sound/track-2.mp3'),
+          // eslint-disable-next-line
+          srcImg: require('../static/img/track-2.jpg'),
+        },
+        {
+          title: 'what if i forget?',
+          artist: 'kaleido',
+          // eslint-disable-next-line
+          src: require('../static/sound/track-3.mp3'),
+          // eslint-disable-next-line
+          srcImg: require('../static/img/track-3.jpg'),
+        },
+      ],
+      player: new Audio(),
     };
+  },
+  created() {
+    this.current = this.songs[this.index];
+    this.player.src = this.current.src;
+  },
+  methods: {
+    play(song) {
+      if (typeof song.src !== 'undefined') {
+        this.current = song;
+        this.player.src = this.current.src;
+      }
+      this.player.play();
+      // eslint-disable-next-line
+      this.player.addEventListener('ended', function () {
+        this.index += 1;
+        if (this.index > this.songs.length - 1) {
+          this.index = 0;
+        }
+        this.isPlaying = true;
+        this.current = this.songs[this.index];
+        this.play(this.current);
+      }.bind(this));
+      this.isPlaying = true;
+    },
+    pause() {
+      this.player.pause();
+      this.isPlaying = false;
+    },
+    prev() {
+      this.index -= 1;
+      if (this.index < 0) {
+        this.index = this.songs.length - 1;
+      }
+      this.isPlaying = true;
+      this.current = this.songs[this.index];
+      this.play(this.current);
+    },
+    next() {
+      this.index += 1;
+      if (this.index > this.songs.length - 1) {
+        this.index = 0;
+      }
+      this.isPlaying = true;
+      this.current = this.songs[this.index];
+      this.play(this.current);
+    },
   },
 };
 </script>
@@ -224,7 +199,24 @@ export default {
     overflow: auto;
     height: 500px;
   }
-  &__trackcard{
+  &__trackcard {
+  }
+  &__currentsong {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px 0px 0px;
+    font-size: 12px;
+  }
+  &__curTitle {
+    display: block;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  &__curArtist {
+    display: block;
+    font-size: 12px;
+    margin-right: 10px;
   }
   &__footer {
     margin-top: 25px;
