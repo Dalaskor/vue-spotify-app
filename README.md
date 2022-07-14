@@ -1,5 +1,7 @@
 # vue-spotify-app
 
+DEMO: https://dalaskor.github.io/vue-spotify-app/
+
 ## Project setup
 ```
 npm install
