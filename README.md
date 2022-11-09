@@ -2,6 +2,8 @@
 
 DEMO: https://dalaskor.github.io/vue-spotify-app/
 
+![Preview](https://github.com/Dalaskor/vue-spotify-app/blob/master/src/assets/Preview.png?raw=true)
+
 ## Project setup
 ```
 npm install
